@@ -1,0 +1,76 @@
+<!-- edit_task.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+</head>
+  
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    form label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    form input, form textarea {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    form button {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    form button:hover {
+        background-color: #218838;
+    }
+    .back-link {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .back-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .back-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+  
+<body>
+    <h1>Edit Task: {{ task.task_name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
